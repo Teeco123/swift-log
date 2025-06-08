@@ -1,11 +1,11 @@
 import Foundation
 
 public enum LogLevel: String {
-    case info = "ℹ️ INFO"
-    case warning = "⚠️ WARNING"
-    case error = "❌ ERROR"
-    case success = "✅ SUCCESS"
-    case print = "💬 DEBUG"
+    case info = "INFO"
+    case warning = "WARNING"
+    case error = "ERROR"
+    case success = "SUCCESS"
+    case print = "DEBUG"
 
     public var colorCode: String {
         switch self {
@@ -19,7 +19,7 @@ public enum LogLevel: String {
 }
 
 public struct Logger {
-    private static func log(_ message: Any, level: LogLevel) {
+    private static func log(_ message: String, level: LogLevel) {
         let timestamp = Logger.timestamp()
         let resetColor = "\u{001B}[0;0m"
         let coloredLevel = "\(level.colorCode)\(level.rawValue)\(resetColor)"
@@ -34,23 +34,23 @@ public struct Logger {
     }
 
     // MARK: - Public Methods
-    public static func info(_ message: Any) {
+    public static func info(_ message: String) {
         log(message, level: .info)
     }
 
-    public static func warning(_ message: Any) {
+    public static func warning(_ message: String) {
         log(message, level: .warning)
     }
 
-    public static func error(_ message: Any) {
+    public static func error(_ message: String) {
         log(message, level: .error)
     }
 
-    public static func success(_ message: Any) {
+    public static func success(_ message: String) {
         log(message, level: .success)
     }
 
-    public static func print(_ message: Any) {
+    public static func print(_ message: String) {
         log(message, level: .print)
     }
 }
