@@ -7,15 +7,11 @@ let package = Package(
     name: "swift-log",
     products: [
         .library(
-            name: "swift-log",
-            targets: ["swift-log"])
+            name: "Logger",
+            targets: ["Logger"])
     ],
     targets: [
         .target(
-            name: "swift-log"),
-        .testTarget(
-            name: "swift-logTests",
-            dependencies: ["swift-log"]
-        )
+            name: "Logger")
     ]
 )
